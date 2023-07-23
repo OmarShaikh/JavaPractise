@@ -230,12 +230,12 @@ class Box {
         width = height = depth = len;
     }
 
-    double volume() {
+    public double volume() {
         return width*height*depth;
     }
 }
 class ArgumentPassing {
-    void meth(int i, int j) {
+    public void meth(int i, int j) {
         i *= 2;
         j /=2;
     }
@@ -249,7 +249,7 @@ class ArgumentPassingByReference {
         a = i;
         b = j;
     }
-    void meth(ArgumentPassingByReference o) {
+    public void meth(ArgumentPassingByReference o) {
         o.a *= 2;
         o.b /=2;
     }
@@ -261,13 +261,13 @@ class ReturningObjects {
         a = i;
     }
 
-    ReturningObjects incrByTen() {
+    public ReturningObjects incrByTen() {
         ReturningObjects temp = new ReturningObjects(a+10);
         return temp;
     }
 }
 class Factorial {
-    int fact (int n) {
+    public int fact (int n) {
         int result;
         if(n==1) return 1;
         result = fact(n-1) * n ;
@@ -279,7 +279,7 @@ class RecTest {
     RecTest(int i){
         values = new int[i];
     }
-    void printArray(int i) {
+    public void printArray(int i) {
         if (i ==0) return;
         else printArray(i-1);
         System.out.println("[" + (i-1) + "]" + values[i-1]);
@@ -294,14 +294,14 @@ class Stack {
         tos = -1;
     }
 
-    void push(int item) {
+    public void push(int item) {
         if(tos==9){
             System.out.println("Stack is full");
         } else
             stck[++tos] = item;
 
     }
-    int pop() {
+    public int pop() {
         if(tos < 0 ) {
             System.out.println("Stack underflow");
             return 0;
@@ -313,7 +313,7 @@ class UseStatic {
     static int a = 3;
     static int b;
 
-    static void meth(int x){
+     static void meth(int x){
         System.out.println("x = " + x);
         System.out.println("a = " + a);
         System.out.println("b = " + b);
@@ -334,7 +334,7 @@ class ImprovedStack {
         tos = -1;
     }
 
-    void push( int item ) {
+    public void push( int item ) {
         if (tos == stck.length-1)
             System.out.println("Stack is full");
         else
@@ -342,7 +342,7 @@ class ImprovedStack {
 
     }
 
-    int pop() {
+    public int pop() {
         if( tos < 0) {
             System.out.println("Stack underflow");
             return 0;
@@ -353,7 +353,7 @@ class ImprovedStack {
 }
 class Outer {
     int outer_x = 100;
-    void test() {
+    public void test() {
         for(int i=0; i<10; i++){
             class Inner {
                 void display(){
@@ -366,14 +366,14 @@ class Outer {
     }
 }
 class VarArgs {
-    static void vaTest(int ...v){
+    public static void vaTest(int ...v){
         System.out.print("Number of args: " + v.length + "Contents: ");
         for(int x : v)
             System.out.print(x + " ");
         System.out.println();
     }
 
-    static void vaTest2(String msg, int ...v){
+    public static void vaTest2(String msg, int ...v){
         System.out.print(msg + v.length + "Contents: ");
         for(int x : v)
             System.out.print(x + " ");
@@ -381,21 +381,21 @@ class VarArgs {
     }
 }
 class VarArgsOverloading {
-    static void vaTest(int ... v) {
+    public static void vaTest(int ... v) {
         System.out.print("vaTest(int...): " + "Number of args: " + v.length + " Contents: ");
         for(int x: v)
             System.out.print(x + " ");
         System.out.println();
     }
 
-    static void vaTest(boolean ... v) {
+    public static void vaTest(boolean ... v) {
         System.out.print("vaTest(boolean ..." + "Number of args: " + v.length + " Contents: ");
         for(boolean x: v)
             System.out.print(x + " ");
         System.out.println();
     }
 
-    static void vaTest(String msg, int ... v) {
+    public static void vaTest(String msg, int ... v) {
         System.out.print("vaTest(String msg, int ...): " + msg + v.length + " Contents: ");
         for(int x: v)
             System.out.print(x + " ");
