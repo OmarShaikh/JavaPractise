@@ -21,7 +21,25 @@ class StackTest {
     public void testPushItemToStack(){
         stack.push(object1);
         assertEquals(object1, stack.peek());
+    }
 
+    @Test
+    public void testStackFullWhilePushingNewItemToStack(){
+
+        RuntimeException thrown = assertThrows(RuntimeException.class, () -> {
+            stack.push(object1);
+            stack.push(object1);
+            stack.push(object1);
+            stack.push(object1);
+            stack.push(object1);
+            stack.push(object1);
+            stack.push(object1);
+            stack.push(object1);
+            stack.push(object1);
+            stack.push(object1);
+            stack.push(object1);
+        });
+        assertEquals("Stack is full", thrown.getMessage());
     }
 
     @Test

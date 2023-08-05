@@ -1,12 +1,18 @@
 package com.tdd.Stack;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 
 public class Stack {
     private final ArrayList<Object> stack;
+    final int maxStackSize = 10;
 
     public Stack() {
         stack = new ArrayList<>();
+    }
+
+    public int getSize() {
+        return stack.size();
     }
 
     public Object pop() {
@@ -20,10 +26,17 @@ public class Stack {
     }
 
     public void push(Object element) {
-        stack.add(element);
+        if(stack.size() < maxStackSize ) {
+            stack.add(element);
+        } else {
+            throw new RuntimeException("Stack is full");
+        }
+
     }
 
     public Object peek(){
         return stack.get(stack.size() - 1);
     }
+
+
 }
